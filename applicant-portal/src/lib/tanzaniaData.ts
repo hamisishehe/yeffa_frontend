@@ -58,7 +58,6 @@ export const fani = [
   "Post Harvest Technology",
 ];
 
-
 export const chuo = [
   "KIHONDA RVTC",
   "MANYARA RVTSC",
@@ -66,3 +65,9 @@ export const chuo = [
   "ARUSHA VTC",
 ];
 
+export const vitambulisho = [
+  "NIDA",
+  "LESENI YA UDEREVA",
+  "KITAMBULISHO CHA KURA",
+  "KITAMBULISHO CHA MAKAZI",
+];

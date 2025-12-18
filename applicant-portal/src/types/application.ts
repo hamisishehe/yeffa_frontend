@@ -5,6 +5,7 @@ export interface ApplicationFormData {
   tareheKuzaliwa: Date | null;
   haliNdoa: string;
   uraia: string;
+  ainayakitambulisho:string;
   nambaKitambulisho: string;
   anwaniMakazi: string;
   jinaKamililamzazi: string
@@ -76,5 +77,6 @@ export const initialFormData: ApplicationFormData = {
   jinaKamililamzazi: "",
   chuo: "",
   fani: "",
-  ufaulu: ""
+  ufaulu: "",
+  ainayakitambulisho: ""
 };

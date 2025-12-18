@@ -8,6 +8,7 @@ const Application = sequelize.define("Application", {
   gender: { type: DataTypes.ENUM("male", "female"), allowNull: false },
   dateOfBirth: { type: DataTypes.DATEONLY, allowNull: false },
   nationality: { type: DataTypes.STRING },
+  id_type: { type: DataTypes.STRING },
   idNumber: { type: DataTypes.STRING, allowNull: false, unique: true, },
   address: { type: DataTypes.TEXT },
   region: { type: DataTypes.STRING, allowNull: false },

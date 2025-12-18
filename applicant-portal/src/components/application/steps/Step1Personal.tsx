@@ -20,7 +20,7 @@ import { CalendarIcon, User } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { ApplicationFormData } from "@/types/application";
-import { regions, districtsByRegion, chuo, fani } from "@/lib/tanzaniaData";
+import { regions, districtsByRegion, chuo, fani, vitambulisho } from "@/lib/tanzaniaData";
 
 interface Step1PersonalProps {
   data: ApplicationFormData;
@@ -221,23 +221,30 @@ export function Step1Personal({
           </Select>
         </div>
 
-        {/* Nationality */}
-        <div className="space-y-2">
-          <Label htmlFor="uraia" className="input-label">
-            Uraia
-          </Label>
-          <Input
-            id="uraia"
-            value={data.uraia}
-            onChange={(e) => updateData({ uraia: e.target.value })}
-            placeholder="Mfano: Tanzania"
-          />
+        
+          <div className="space-y-2">
+          <Label className="input-label">Chagua Kitambulisho <span className="text-destructive">*</span></Label>
+          <Select
+            value={data.ainayakitambulisho}
+            onValueChange={(value) => updateData({ ainayakitambulisho: value })}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Chagua Kitambulisho" />
+            </SelectTrigger>
+            <SelectContent className="bg-popover">
+              {vitambulisho.map((vitambulisho) => (
+                <SelectItem key={vitambulisho} value={vitambulisho}>
+                  {vitambulisho}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
 
-        {/* ID/Passport Number */}
+         {/* ID/Passport Number */}
         <div className="space-y-2">
           <Label htmlFor="nambaKitambulisho" className="input-label">
-            Namba ya NIDA/Pasipoti <span className="text-destructive">*</span>
+            Namba ya Kitambulisho <span className="text-destructive">*</span>
           </Label>
           <Input
             id="nambaKitambulisho"
@@ -252,6 +259,21 @@ export function Step1Personal({
             </p>
           )}
         </div>
+
+        {/* Nationality */}
+        <div className="space-y-2">
+          <Label htmlFor="uraia" className="input-label">
+            Uraia
+          </Label>
+          <Input
+            id="uraia"
+            value={data.uraia}
+            onChange={(e) => updateData({ uraia: e.target.value })}
+            placeholder="Mfano: Tanzania"
+          />
+        </div>
+
+       
 
         {/* Full Name */}
         <div className="space-y-2">

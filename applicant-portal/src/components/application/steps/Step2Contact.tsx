@@ -34,12 +34,12 @@ export function Step2Contact({ data, updateData, errors }: Step2ContactProps) {
               id="nambaSimu"
               value={data.nambaSimu}
               onChange={(e) => updateData({ nambaSimu: e.target.value })}
-              placeholder="0712 345 678"
+              placeholder="+255712345678"
               className={`pl-10 ${errors.nambaSimu ? "border-destructive" : ""}`}
             />
           </div>
           {errors.nambaSimu && <p className="text-sm text-destructive">{errors.nambaSimu}</p>}
-          <p className="text-xs text-muted-foreground">Mfano: 0712345678 au +255712345678</p>
+          <p className="text-xs text-muted-foreground">Mfano: +255712345678</p>
         </div>
 
         {/* Secondary Phone */}
@@ -53,7 +53,7 @@ export function Step2Contact({ data, updateData, errors }: Step2ContactProps) {
               id="nambaSimuZiada"
               value={data.nambaSimuZiada}
               onChange={(e) => updateData({ nambaSimuZiada: e.target.value })}
-              placeholder="0712 345 678"
+              placeholder="+255712345678"
               className="pl-10"
             />
           </div>

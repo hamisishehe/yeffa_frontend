@@ -13,6 +13,10 @@ import { ApplicationFormData, initialFormData } from "@/types/application";
 import { toast } from "@/hooks/use-toast";
 import { z } from "zod";
 
+
+
+
+
 const steps = [
   { number: 1, title: "Taarifa Binafsi", shortTitle: "Binafsi" },
   { number: 2, title: "Mawasiliano", shortTitle: "Mawasiliano" },
@@ -21,11 +25,15 @@ const steps = [
   { number: 5, title: "Mapitio", shortTitle: "Mapitio" },
 ];
 
+
+
+
 // Validation schemas for each step
 const step1Schema = z.object({
   jinaKamili: z.string().min(1, "Jina kamili linahitajika"),
   jinsia: z.enum(["kiume", "kike"], { required_error: "Chagua jinsia" }),
   tareheKuzaliwa: z.date({ required_error: "Tarehe ya kuzaliwa inahitajika" }),
+  ainayakitambulisho: z.string().min(1, "Aina ya kitambulisho"),
   nambaKitambulisho: z.string().min(1, "Namba ya kitambulisho inahitajika"),
   jinaKamililamzazi: z.string().min(1, "Jina kamili la mzazi / mlezi linahitajika"),
   mkoa: z.string().min(1, "Chagua mkoa"),
@@ -89,6 +97,7 @@ export function ApplicationForm() {
           jinaKamili: formData.jinaKamili,
           jinsia: formData.jinsia,
           tareheKuzaliwa: formData.tareheKuzaliwa,
+          ainayakitambulisho:formData.ainayakitambulisho,
           nambaKitambulisho: formData.nambaKitambulisho,
           jinaKamililamzazi: formData.jinaKamililamzazi,
           mkoa: formData.mkoa,
@@ -200,11 +209,14 @@ const handleSubmit = async () => {
     formPayload.append("dateOfBirth", formData.tareheKuzaliwa.toISOString());
     formPayload.append("guadianName", formData.jinaKamililamzazi || "");
     formPayload.append("nationality", formData.uraia || "");
+
+    formPayload.append("id_type", formData.ainayakitambulisho);
     formPayload.append("idNumber", formData.nambaKitambulisho);
     formPayload.append("address", formData.anwaniMakazi || "");
     formPayload.append("region", formData.mkoa);
     formPayload.append("district", formData.wilaya);
     formPayload.append("selected_institution", formData.chuo);
+    
     formPayload.append("selected_course", formData.fani);
 
     // Step 2: Contact Info
@@ -226,6 +238,7 @@ const handleSubmit = async () => {
     formPayload.append("agreeToRules", String(formData.agreeToRules));
     formPayload.append("applicantName", formData.jinaMwombaji || "");
     formPayload.append("signature", formData.sahihi || "");
+
 
     if (formData.pichaPasipoti) formPayload.append("passportPhoto", formData.pichaPasipoti);
     if (formData.nakalaKitambulisho) formPayload.append("idCopy", formData.nakalaKitambulisho);

@@ -1,0 +1,16 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "Hamisi2233.",
+    "database": "yeffa",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "Hamisi2233.",
+    "database": "yeffa_db",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
